@@ -12,6 +12,9 @@ class AppWidget extends StatelessWidget {
       home: const HomePage(),
       theme: ThemeData(
         primaryColor: AppTheme.appBarColor,
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: AppTheme.appBarColor,
+        ),
         appBarTheme: const AppBarTheme(
           backgroundColor: AppTheme.appColor,
         )

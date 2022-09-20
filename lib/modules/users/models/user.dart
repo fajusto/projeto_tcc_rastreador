@@ -3,6 +3,7 @@ class User {
   String? roleUuid;
   String? name;
   String? lastName;
+  String? phone;
   String? section;
 
   User({
@@ -10,6 +11,7 @@ class User {
     this.roleUuid,
     this.name,
     this.lastName,
+    this.phone,
     this.section,
   });
 
@@ -19,6 +21,7 @@ class User {
       roleUuid: json['role_uuid'],
       name: json['name'],
       lastName: json['last_name'],
+      phone: json['phone'],
       section: json['section'],
     );
   }
@@ -29,6 +32,7 @@ class User {
       'role_uuid': user.roleUuid,
       'name': user.name,
       'last_name': user.lastName,
+      'phone': user.phone,
       'section': user.section,
     };
     return map;

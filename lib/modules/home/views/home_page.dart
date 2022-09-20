@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projeto_tcc_rastreador/modules/home/widgets/menu_button.dart';
+import 'package:projeto_tcc_rastreador/modules/users/users.dart';
 
 import '../../../core/app_theme.dart';
 
@@ -11,7 +12,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Início',
+        title: Text(
+          'Início',
           style: GoogleFonts.ubuntu(
             fontWeight: FontWeight.bold,
           ),
@@ -24,12 +26,11 @@ class HomePage extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
           decoration: const BoxDecoration(
-            color: AppTheme.primaryColor,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(40),
-              topRight: Radius.circular(40),
-            )
-          ),
+              color: AppTheme.primaryColor,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(40),
+                topRight: Radius.circular(40),
+              )),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -39,7 +40,8 @@ class HomePage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Fortline',
+                      Text(
+                        'Fortline',
                         style: GoogleFonts.ubuntu(
                           fontSize: 35,
                           fontWeight: FontWeight.bold,
@@ -47,32 +49,42 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 50,),
+                  const SizedBox(
+                    height: 50,
+                  ),
                   Wrap(
                     spacing: 20,
                     runSpacing: 20,
-                    children: const [
+                    children: [
                       MenuButton(
                         icon: Icons.people,
                         title: 'Usuários',
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) => const Users()));
+                        },
                       ),
                       MenuButton(
                         icon: Icons.playlist_add_check,
                         title: 'Produtos',
+                        onTap: () {},
                       ),
                       MenuButton(
                         icon: Icons.list_alt,
                         title: 'Programação',
+                        onTap: () {},
                       ),
                       MenuButton(
                         icon: Icons.business_sharp,
                         title: 'Setores',
+                        onTap: () {},
                       ),
                     ],
                   ),
                 ],
               ),
-              Text('Desenvolvido por FIK',
+              Text(
+                'Desenvolvido por FIK',
                 style: GoogleFonts.ubuntu(
                   fontSize: 12,
                   color: Colors.grey,

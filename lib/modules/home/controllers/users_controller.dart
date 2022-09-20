@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
-import '../models/user.dart';
+import '../../users/models/user.dart';
+
 
 part 'users_controller.g.dart';
 
