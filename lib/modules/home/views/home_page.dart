@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projeto_tcc_rastreador/modules/auth/loginpage.dart';
 import 'package:projeto_tcc_rastreador/modules/home/widgets/menu_button.dart';
-import 'package:projeto_tcc_rastreador/modules/users/users.dart';
+import 'package:projeto_tcc_rastreador/modules/products/products.dart';
+import 'package:projeto_tcc_rastreador/modules/schedules/views/schedules.dart';
+import 'package:projeto_tcc_rastreador/modules/sections/views/sections.dart';
+import 'package:projeto_tcc_rastreador/modules/users/views/users.dart';
 
 import '../../../core/app_theme.dart';
 
@@ -18,6 +22,17 @@ class HomePage extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: IconButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (_) => LoginPage()));
+                },
+                icon: const Icon(Icons.logout)),
+          )
+        ],
         centerTitle: true,
         elevation: 0,
       ),
@@ -41,7 +56,7 @@ class HomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Fortline',
+                        'FIKM',
                         style: GoogleFonts.ubuntu(
                           fontSize: 35,
                           fontWeight: FontWeight.bold,
@@ -67,16 +82,41 @@ class HomePage extends StatelessWidget {
                       MenuButton(
                         icon: Icons.playlist_add_check,
                         title: 'Produtos',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const Products()));
+                        },
                       ),
                       MenuButton(
                         icon: Icons.list_alt,
                         title: 'Programação',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const Schedules()));
+                        },
                       ),
                       MenuButton(
                         icon: Icons.business_sharp,
                         title: 'Setores',
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const Sections()));
+                        },
+                      ),
+                      MenuButton(
+                        icon: Icons.people_alt_outlined,
+                        title: 'Clientes',
+                        onTap: () {},
+                      ),
+                      MenuButton(
+                        icon: Icons.place,
+                        title: 'Lugares',
                         onTap: () {},
                       ),
                     ],

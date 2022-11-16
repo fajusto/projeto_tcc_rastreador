@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'models/user.dart';
+import 'package:projeto_tcc_rastreador/modules/users/views/user_info.dart';
+import '../models/user.dart';
 
 class Users extends StatefulWidget {
   const Users({Key? key}) : super(key: key);
@@ -51,22 +52,27 @@ class _UsersState extends State<Users> {
       appBar: AppBar(
         title: const Text('Usuários'),
       ),
-      body: Column(
+      body: Stack(
         children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: users.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: Text((index + 1).toString()),
-                    title: Text('${users[index].name!} ${users[index].lastName!}'),
-                    subtitle: Text('${users[index].phone}'),
-                    trailing: Text('${users[index].section}'),
-                    onTap: () {},
-                  );
-                }
-            ),
-          )
+          Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  itemCount: users.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        leading: Text((index + 1).toString()),
+                        title: Text('${users[index].name!} ${users[index].lastName!}'),
+                        subtitle: Text('${users[index].phone}'),
+                        trailing: Text('${users[index].section}'),
+                        onTap: () {},
+                      );
+                    }
+                ),
+              )
+            ],
+          ),
+          //const UserInfo(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
