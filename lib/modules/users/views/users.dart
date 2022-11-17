@@ -46,6 +46,14 @@ class _UsersState extends State<Users> {
     ),
   ];
 
+  bool userInfo = false;
+
+  _showUserInfo(){
+    setState(() {
+      userInfo = !userInfo;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,11 +80,16 @@ class _UsersState extends State<Users> {
               )
             ],
           ),
-          //const UserInfo(),
+          Visibility(
+              visible: userInfo,
+              child: const UserInfo()
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          _showUserInfo();
+        },
         child: const Icon(Icons.add),
       ),
     );

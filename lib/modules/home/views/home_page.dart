@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projeto_tcc_rastreador/modules/auth/loginpage.dart';
+import 'package:projeto_tcc_rastreador/modules/customers/views/customers.dart';
 import 'package:projeto_tcc_rastreador/modules/home/widgets/menu_button.dart';
+import 'package:projeto_tcc_rastreador/modules/places/views/places.dart';
 import 'package:projeto_tcc_rastreador/modules/products/products.dart';
 import 'package:projeto_tcc_rastreador/modules/schedules/views/schedules.dart';
 import 'package:projeto_tcc_rastreador/modules/sections/views/sections.dart';
@@ -112,12 +114,24 @@ class HomePage extends StatelessWidget {
                       MenuButton(
                         icon: Icons.people_alt_outlined,
                         title: 'Clientes',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const Customers())
+                          );
+                        },
                       ),
                       MenuButton(
                         icon: Icons.place,
                         title: 'Lugares',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const Places())
+                          );
+                        },
                       ),
                     ],
                   ),
